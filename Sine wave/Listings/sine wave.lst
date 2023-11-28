@@ -1,0 +1,60 @@
+A51 MACRO ASSEMBLER  SINE_WAVE                                                            03/27/2022 14:43:31 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\sine wave.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE sine wave.asm SET(SMALL) DEBUG PRINT(.\Listings\sine wave.lst) OBJECT(.
+                      \Objects\sine wave.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+                       2             
+0000                   3     START:
+0000 900400            4     MOV DPTR, #VALUES
+0003 7825              5     MOV R0, #25H
+                       6     
+0005                   7     LOOP:
+0005 E4                8     CLR A
+0006 93                9     MOVC A, @A + DPTR
+0007 F590             10     MOV P1, A
+0009 A3               11     INC DPTR
+000A D8F9             12     DJNZ R0, LOOP
+                      13     
+000C 80F2             14     SJMP START
+                      15     
+0400                  16     ORG 400H
+                      17             
+0400                  18     VALUES:
+0400 8096ABC0         19     DB 80H, 96H, 0ABH, 0C0H ,0D2H, 0E2H, 0EFH, 0F8H, 0FEH ,0FFH, 0FEH, 0F8H ,0EFH, 0E2H, 0D2H, 
+                             0C0H, 0ABH, 96H, 80H, 6AH
+0404 D2E2EFF8                
+0408 FEFFFEF8                
+040C EFE2D2C0                
+0410 AB96806A                
+0414 54402E1E         20     DB 54H, 40H, 2EH, 1EH, 11H, 08H, 02H, 00H, 02H, 08H, 11H, 1EH, 2EH, 40H, 54H, 6AH, 80H
+0418 11080200                
+041C 0208111E                
+0420 2E40546A                
+0424 80                      
+                      21             
+0425 22               22     RET
+                      23     END
+A51 MACRO ASSEMBLER  SINE_WAVE                                                            03/27/2022 14:43:31 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+LOOP . . . . . . .  C ADDR   0005H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+START. . . . . . .  C ADDR   0000H   A   
+VALUES . . . . . .  C ADDR   0400H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

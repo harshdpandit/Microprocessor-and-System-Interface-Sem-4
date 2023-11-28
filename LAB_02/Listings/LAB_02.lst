@@ -1,0 +1,112 @@
+A51 MACRO ASSEMBLER  LAB_02                                                               02/02/2022 23:41:45 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\LAB_02.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE LAB_02.asm SET(SMALL) DEBUG PRINT(.\Listings\LAB_02.lst) OBJECT(.\Objec
+                      ts\LAB_02.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+                       2     
+0000                   3     MAIN:
+0000 759038            4     MOV P1,#38H     
+0003 114F              5     ACALL COMMAND    
+0005 1165              6     ACALL DELAY      
+                       7     
+0007 75900E            8     MOV P1,#0EH      
+000A 114F              9     ACALL COMMAND
+000C 1165             10     ACALL DELAY
+                      11     
+000E 759001           12     MOV P1,#01H      
+0011 114F             13     ACALL COMMAND
+0013 1165             14     ACALL DELAY
+                      15     
+0015 759010           16     MOV P1,#10H      
+0018 114F             17     ACALL COMMAND
+001A 1165             18     ACALL DELAY
+                      19     
+001C 759006           20     MOV P1,#06H      
+001F 114F             21     ACALL COMMAND
+0021 1165             22     ACALL DELAY
+                      23     
+0023 759080           24     MOV P1,#80H      
+0026 114F             25     ACALL COMMAND
+0028 1165             26     ACALL DELAY
+                      27     
+                      28     
+                      29     
+002A 759048           30     MOV P1,#'H'      
+002D 115A             31     ACALL DATAL
+002F 1165             32     ACALL DELAY
+                      33     
+0031 759041           34     MOV P1,#'A'     
+0034 115A             35     ACALL DATAL
+0036 1165             36     ACALL DELAY
+                      37     
+0038 759052           38     MOV P1,#'R'      
+003B 115A             39     ACALL DATAL
+003D 1165             40     ACALL DELAY
+                      41     
+003F 759053           42     MOV P1,#'S'      
+0042 115A             43     ACALL DATAL
+0044 1165             44     ACALL DELAY
+                      45     
+0046 759048           46     MOV P1,#'H'      
+0049 115A             47     ACALL DATAL
+004B 1165             48     ACALL DELAY
+                      49     
+                      50     
+004D 80FE             51     HERE: SJMP HERE  
+                      52     
+                      53      
+004F                  54     COMMAND:         
+004F C2B0             55     CLR P3.0         
+0051 C2B1             56     CLR P3.1         
+0053 D2B2             57     SETB P3.2        
+A51 MACRO ASSEMBLER  LAB_02                                                               02/02/2022 23:41:45 PAGE     2
+
+0055 1165             58     ACALL DELAY
+0057 C2B2             59     CLR P3.2         
+0059 22               60     RET
+                      61     
+                      62     
+005A                  63     DATAL:           
+005A D2B0             64     SETB P3.0        
+005C C2B1             65     CLR P3.1         
+005E D2B2             66     SETB P3.2        
+0060 1165             67     ACALL DELAY
+0062 C2B2             68     CLR P3.2         
+0064 22               69     RET
+                      70     
+0065                  71     DELAY:
+0065 7B32             72     MOV R3, #50              
+0067 7CFF             73     WAIT1: MOV R4, #255      
+0069 DCFE             74     WAIT: DJNZ R4, WAIT      
+006B DBFA             75     DJNZ R3, WAIT1           
+006D 22               76     RET
+                      77     END
+A51 MACRO ASSEMBLER  LAB_02                                                               02/02/2022 23:41:45 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+COMMAND. . . . . .  C ADDR   004FH   A   
+DATAL. . . . . . .  C ADDR   005AH   A   
+DELAY. . . . . . .  C ADDR   0065H   A   
+HERE . . . . . . .  C ADDR   004DH   A   
+MAIN . . . . . . .  C ADDR   0000H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+WAIT . . . . . . .  C ADDR   0069H   A   
+WAIT1. . . . . . .  C ADDR   0067H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

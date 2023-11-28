@@ -1,0 +1,39 @@
+A51 MACRO ASSEMBLER  ASSIGNMENT_2                                                         03/27/2022 14:31:14 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\Assignment 2.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Assignment 2.asm SET(SMALL) DEBUG PRINT(.\Listings\Assignment 2.lst) OB
+                      JECT(.\Objects\Assignment 2.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 00H
+0000 7800              2     MOV R0, #00H
+0002 758108            3     MOV SP, #08H
+0005 8890              4     UP: MOV P1, R0
+0007 08                5     INC R0
+0008 B8FFFA            6     CJNE R0, #0FFH, UP
+000B 8890              7     DOWN: MOV P1, R0
+000D D8FC              8     DJNZ R0, DOWN
+000F 020005            9     LJMP UP
+0012 22               10     RET
+                      11     END
+A51 MACRO ASSEMBLER  ASSIGNMENT_2                                                         03/27/2022 14:31:14 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DOWN . . . . . . .  C ADDR   000BH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+SP . . . . . . . .  D ADDR   0081H   A   
+UP . . . . . . . .  C ADDR   0005H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

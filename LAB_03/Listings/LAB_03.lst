@@ -1,0 +1,124 @@
+A51 MACRO ASSEMBLER  LAB_03                                                               01/12/2022 15:29:05 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\LAB_03.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE LAB_03.asm SET(SMALL) DEBUG PRINT(.\Listings\LAB_03.lst) OBJECT(.\Objec
+                      ts\LAB_03.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+                       2     
+                       3             
+0000 75A0FF            4                     MOV P2,#0FFH
+                       5     
+0003 759000            6     K1:     MOV P1,#0
+0006 E5A0              7                     MOV A,P2
+0008 540F              8                     ANL A,#00001111B
+000A B40FF6            9                     CJNE A, #00001111B,K1
+                      10                     
+000D 116F             11     K2:     ACALL DELAY
+000F E5A0             12                     MOV A,P2
+0011 540F             13                     ANL A,#00001111B
+0013 B40F02           14                     CJNE A,#00001111B,OVER
+0016 80F5             15                     SJMP K2
+                      16                     
+0018 116F             17     OVER:   ACALL DELAY
+001A E5A0             18                     MOV A,P2
+001C 540F             19                     ANL A,#00001111B
+001E B40F02           20                     CJNE A,#00001111B,OVER1
+0021 80EA             21                     SJMP K2 
+                      22     
+0023 7590FE           23     OVER1:  MOV P1,#11111110B
+0026 E5A0             24                     MOV A,P2
+0028 540F             25                     ANL A,#00001111B
+002A B40F21           26                     CJNE A,#00001111B,ROW_0
+                      27                     
+002D 7590FD           28                     MOV P1,#11111101B
+0030 E5A0             29                     MOV A,P2
+0032 540F             30                     ANL A,#00001111B
+0034 B40F1C           31                     CJNE A,#00001111B,ROW_1
+                      32                     
+0037 7590FB           33                     MOV P1,#11111011B
+003A E5A0             34                     MOV A,P2
+003C 540F             35                     ANL A,#00001111B
+003E B40F17           36                     CJNE A,#00001111B,ROW_2
+                      37                     
+0041 7590F7           38                     MOV P1,#11110111B
+0044 E5A0             39                     MOV A,P2
+0046 540F             40                     ANL A,#00001111B
+0048 B40F12           41                     CJNE A,#00001111B,ROW_3
+                      42                     
+004B 02000D           43                     LJMP K2
+                      44                     
+004E 900300           45     ROW_0:  MOV DPTR,#CODE1
+0051 800F             46                     SJMP FIND
+                      47                     
+0053 900303           48     ROW_1:  MOV DPTR,#CODE2
+0056 800A             49                     SJMP FIND
+                      50                     
+0058 900306           51     ROW_2:  MOV DPTR,#CODE3
+005B 8005             52                     SJMP FIND
+                      53                     
+005D 900309           54     ROW_3:  MOV DPTR,#CODE4
+0060 8000             55                     SJMP FIND
+                      56                     
+0062 13               57     FIND:   RRC A
+A51 MACRO ASSEMBLER  LAB_03                                                               01/12/2022 15:29:05 PAGE     2
+
+0063 5003             58                     JNC MATCH
+0065 A3               59                     INC DPTR
+0066 80FA             60                     SJMP FIND
+                      61                     
+0068 E4               62     MATCH:  CLR A
+0069 93               63                     MOVC A,@A+DPTR
+006A F5B0             64                     MOV P3,A
+006C 020003           65                     LJMP K1
+                      66                     
+006F 7AFF             67     DELAY:  MOV R2,#0FFH
+0071 DAFE             68     LOOP:   DJNZ R2,LOOP
+0073 22               69                     RET
+                      70                     
+0300                  71     ORG 300H
+                      72     
+0300 313233           73     CODE1: DB '1','2','3'
+0303 343536           74     CODE2: DB '4','5','6'
+0306 373839           75     CODE3: DB '7','8','9'
+0309 2A3023           76     CODE4: DB '*','0','#'
+                      77                     END
+                                             
+                                             
+A51 MACRO ASSEMBLER  LAB_03                                                               01/12/2022 15:29:05 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CODE1. . . . . . .  C ADDR   0300H   A   
+CODE2. . . . . . .  C ADDR   0303H   A   
+CODE3. . . . . . .  C ADDR   0306H   A   
+CODE4. . . . . . .  C ADDR   0309H   A   
+DELAY. . . . . . .  C ADDR   006FH   A   
+FIND . . . . . . .  C ADDR   0062H   A   
+K1 . . . . . . . .  C ADDR   0003H   A   
+K2 . . . . . . . .  C ADDR   000DH   A   
+LOOP . . . . . . .  C ADDR   0071H   A   
+MATCH. . . . . . .  C ADDR   0068H   A   
+OVER . . . . . . .  C ADDR   0018H   A   
+OVER1. . . . . . .  C ADDR   0023H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+ROW_0. . . . . . .  C ADDR   004EH   A   
+ROW_1. . . . . . .  C ADDR   0053H   A   
+ROW_2. . . . . . .  C ADDR   0058H   A   
+ROW_3. . . . . . .  C ADDR   005DH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

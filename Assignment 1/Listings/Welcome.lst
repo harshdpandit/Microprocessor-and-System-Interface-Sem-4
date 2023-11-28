@@ -1,0 +1,140 @@
+A51 MACRO ASSEMBLER  WELCOME                                                              03/17/2022 19:28:34 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\Welcome.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Welcome.asm SET(SMALL) DEBUG PRINT(.\Listings\Welcome.lst) OBJECT(.\Obj
+                      ects\Welcome.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 0000H
+0000                   2             MAIN:
+0000 759038            3             MOV P1,#38H     
+0003 11BF              4             ACALL COMMAND    
+0005 11D5              5             ACALL DELAY      
+0007 75900E            6             MOV P1,#0EH      
+000A 11BF              7             ACALL COMMAND
+000C 11D5              8             ACALL DELAY
+000E 759001            9             MOV P1,#01H      
+0011 11BF             10             ACALL COMMAND
+0013 11D5             11             ACALL DELAY
+0015 7590C0           12             MOV P1,#0C0H     
+0018 11BF             13             ACALL COMMAND
+001A 11D5             14             ACALL DELAY
+001C 75901C           15             MOV P1,#1CH      
+001F 11BF             16             ACALL COMMAND
+0021 11D5             17             ACALL DELAY
+0023 759004           18             MOV P1,#04H      
+0026 11BF             19             ACALL COMMAND
+0028 11D5             20             ACALL DELAY
+002A 759014           21             MOV P1,#14H      
+002D 11BF             22             ACALL COMMAND
+002F 11D5             23             ACALL DELAY
+0031 759014           24             MOV P1,#14H      
+0034 11BF             25             ACALL COMMAND
+0036 11D5             26             ACALL DELAY
+0038 759014           27             MOV P1,#14H      
+003B 11BF             28             ACALL COMMAND
+003D 11D5             29             ACALL DELAY
+003F 759014           30             MOV P1,#14H      
+0042 11BF             31             ACALL COMMAND
+0044 11D5             32             ACALL DELAY
+0046 759014           33             MOV P1,#14H      
+0049 11BF             34             ACALL COMMAND
+004B 11D5             35             ACALL DELAY
+004D 759014           36             MOV P1,#14H      
+0050 11BF             37             ACALL COMMAND
+0052 11D5             38             ACALL DELAY
+0054 759014           39             MOV P1,#14H      
+0057 11BF             40             ACALL COMMAND
+0059 11D5             41             ACALL DELAY
+005B 759014           42             MOV P1,#14H      
+005E 11BF             43             ACALL COMMAND
+0060 11D5             44             ACALL DELAY
+0062 759014           45             MOV P1,#14H      
+0065 11BF             46             ACALL COMMAND
+0067 11D5             47             ACALL DELAY
+0069 759014           48             MOV P1,#14H      
+006C 11BF             49             ACALL COMMAND
+006E 11D5             50             ACALL DELAY
+0070 759014           51             MOV P1,#14H      
+0073 11BF             52             ACALL COMMAND
+0075 11D5             53             ACALL DELAY
+0077 759014           54             MOV P1,#14H      
+007A 11BF             55             ACALL COMMAND
+007C 11D5             56             ACALL DELAY
+007E 759014           57             MOV P1,#14H      
+A51 MACRO ASSEMBLER  WELCOME                                                              03/17/2022 19:28:34 PAGE     2
+
+0081 11BF             58             ACALL COMMAND
+0083 11D5             59             ACALL DELAY
+0085 759014           60             MOV P1,#14H      
+0088 11BF             61             ACALL COMMAND
+008A 11D5             62             ACALL DELAY
+008C 759057           63             MOV P1,#'W'      
+008F 11CA             64             ACALL DATAL
+0091 11D5             65             ACALL DELAY
+0093 759045           66             MOV P1,#'E'     
+0096 11CA             67             ACALL DATAL
+0098 11D5             68             ACALL DELAY
+009A 75904C           69             MOV P1,#'L'      
+009D 11CA             70             ACALL DATAL
+009F 11D5             71             ACALL DELAY
+00A1 759043           72             MOV P1,#'C'      
+00A4 11CA             73             ACALL DATAL
+00A6 11D5             74             ACALL DELAY
+00A8 75904F           75             MOV P1,#'O'      
+00AB 11CA             76             ACALL DATAL
+00AD 11D5             77             ACALL DELAY
+00AF 75904D           78             MOV P1,#'M'      
+00B2 11CA             79             ACALL DATAL
+00B4 11D5             80             ACALL DELAY
+00B6 759045           81             MOV P1,#'E'      
+00B9 11CA             82             ACALL DATAL
+00BB 11D5             83             ACALL DELAY
+00BD 80FE             84             HERE: SJMP HERE  
+00BF                  85             COMMAND:         
+00BF C2B0             86             CLR P3.0         
+00C1 C2B1             87             CLR P3.1         
+00C3 D2B2             88             SETB P3.2        
+00C5 11D5             89             ACALL DELAY
+00C7 C2B2             90             CLR P3.2         
+00C9 22               91             RET
+00CA                  92             DATAL:           
+00CA D2B0             93             SETB P3.0        
+00CC C2B1             94             CLR P3.1         
+00CE D2B2             95             SETB P3.2        
+00D0 11D5             96             ACALL DELAY
+00D2 C2B2             97             CLR P3.2         
+00D4 22               98             RET
+00D5                  99             DELAY:
+00D5 7B32            100             MOV R3, #50              
+00D7 7CFF            101             WAIT1: MOV R4, #255      
+00D9 DCFE            102             WAIT: DJNZ R4, WAIT      
+00DB DBFA            103             DJNZ R3, WAIT1           
+00DD 22              104             RET
+                     105             END
+A51 MACRO ASSEMBLER  WELCOME                                                              03/17/2022 19:28:34 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+COMMAND. . . . . .  C ADDR   00BFH   A   
+DATAL. . . . . . .  C ADDR   00CAH   A   
+DELAY. . . . . . .  C ADDR   00D5H   A   
+HERE . . . . . . .  C ADDR   00BDH   A   
+MAIN . . . . . . .  C ADDR   0000H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+WAIT . . . . . . .  C ADDR   00D9H   A   
+WAIT1. . . . . . .  C ADDR   00D7H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
